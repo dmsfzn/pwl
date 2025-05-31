@@ -56,7 +56,7 @@ select {
 button {
     width: 100%;
     padding: 12px;
-    background: #7494ec;
+    background: #d90429;
     border-radius: 6px;
     border: none;
     cursor: pointer;
@@ -68,7 +68,7 @@ button {
 }
 
 button:hover {
-    background: #6884d3;
+    background: #d34e64;
 }
 
 p {
@@ -78,7 +78,7 @@ p {
 }
 
 p a {
-    color: #7494ec;
+    color: #d90429;
     text-decoration: none;
 }
 

@@ -44,11 +44,16 @@ $email = $_SESSION['email'] ?? '';
                 <li><a href="#parts">Parts</a></li>
                 <li><a href="#blog">Blog</a></li>
              </ul>
-             <i class='bx bx-search' id="search-icon"></i>
-             <div class="search-box container">
-                <input type="search" nama="" id="" placeholder="Search here...">
+             <div class="header-icons">
+                 <i class='bx bx-search' id="search-icon"></i>
+                 <i class='bx bx-shopping-bag' id="cart-icon"></i>
+                 <span id="cart-count">0</span>
+                 <a href="logout.php" title="Logout"><i class='bx bx-log-out' id="logout-icon"></i></a>
              </div>
-            </div>   
+             <div class="search-box container">
+                <input type="search" name="" id="" placeholder="Search here...">
+             </div>
+        </div>   
     </header>
     <section class="home" id="home">
        <div class="home-text">
@@ -65,32 +70,48 @@ $email = $_SESSION['email'] ?? '';
         </div>
         <div class="cars-container container">
             <div class="box">
-            <img src="foto/mobil1.jpg" alt="">
-            <h2>Nissan GT-R (R35)</h2>
+                <img src="foto/mobil1.jpg" alt="Nissan GT-R (R35)">
+                <h2 class="add-car-to-cart-trigger" 
+                    data-name="Nissan GT-R (R35)" 
+                    data-price="80000" 
+                    data-img="foto/mobil1.jpg" 
+                    style="cursor: pointer;">Nissan GT-R (R35)</h2>
             </div>
             <div class="box">
-            <img src="foto/mobil2.jpg" alt="">
-            <h2>Nissan Skyline GT-R (R34)</h2>
+                <img src="foto/mobil2.jpg" alt="Nissan Skyline GT-R (R34)">
+                <h2 class="add-car-to-cart-trigger" 
+                    data-name="Nissan Skyline GT-R (R34)" 
+                    data-price="120000" 
+                    data-img="foto/mobil2.jpg" 
+                    style="cursor: pointer;">Nissan Skyline GT-R (R34)</h2>
             </div>
             <div class="box">
-            <img src="foto/mobil3.jpg" alt="">
-            <h2>Nissan GT-R (R35)</h2>
+                <img src="foto/mobil3.jpg" alt="Nissan GT-R (R35) Sport">
+                <h2 class="add-car-to-cart-trigger" 
+                    data-name="Nissan GT-R (R35) Sport" 
+                    data-price="85000" 
+                    data-img="foto/mobil3.jpg" 
+                    style="cursor: pointer;">Nissan GT-R (R35) Sport</h2>
             </div>
             <div class="box">
-            <img src="foto/mobil4.jpg" alt="">
-            <h2>Nissan GT-R (R35)</h2>
+                <img src="foto/mobil4.jpg" alt="Nissan GT-R (R35) White">
+                <h2 class="add-car-to-cart-trigger" 
+                    data-name="Nissan GT-R (R35) Black" 
+                    data-price="82000" 
+                    data-img="foto/mobil4.jpg" 
+                    style="cursor: pointer;">Nissan GT-R (R35) White</h2>
             </div>
         </div>
     </section>
     <section class="about container" id="about">
        <div class="about-img">
-        <img src="foto/about.png" alt="">
+        <img src="foto/about.png" alt="About Brebes Autos">
     </div>
      <div class="about-text">
         <span>About Us</span>
         <h2>Cheap Prices With <br>Quality Cars</h2>
         <p>Brebes Autos berkomitmen menyediakan mobil berkualitas dengan harga terjangkau. Kami selalu memastikan setiap kendaraan telah melalui proses inspeksi ketat agar pelanggan mendapatkan mobil terbaik sesuai kebutuhan dan anggaran. Kepuasan dan kepercayaan Anda adalah prioritas utama kami.</p>
-        <a href="" class="btn">Learn More</a>
+        <a href="#" class="btn">Learn More</a>
      </div>
     </section>
     <section class="parts" id="parts">
@@ -101,53 +122,83 @@ $email = $_SESSION['email'] ?? '';
         </div>
         <div class="parts-container container">
             <div class="box">
-              <img src="foto/patrs1.png" alt="">
-               <h3>Mesin</h3>
-                <span>$500</span>
-                <i class='bx bxs-star'>(9 Reviws)</i>
-                <a href="#" class="btn">Buy Now</a>
-                <a href="#" class="details">View Details</a>
+            <img src="foto/patrs1.png" alt="Mesin V-Engine Mobil" id="part-img-mesin">
+            <h3>Mesin V-Engine</h3>
+            <span class="price">$500</span>
+            <i class='bx bxs-star'>(9 Reviws)</i>
+            <a href="#" class="btn add-to-cart-btn" data-name="Mesin V-Engine" data-price="500" data-img="foto/patrs1.png">Buy Now</a>
+            <a href="#" class="details view-details-btn" 
+               data-name="Mesin V-Engine" 
+               data-price="$500" 
+               data-reviews="(9 Reviws)" 
+               data-img="foto/patrs1.png"
+               data-product-id="part1">View Details</a>
             </div>
-            <div class="box">
-                <img src="foto/parts2.png" alt="">
-                 <h3>Auto Spare Parts</h3>
-                  <span>$500</span>
-                  <i class='bx bxs-star'>(9 Reviws)</i>
-                  <a href="#" class="btn">Buy Now</a>
-                  <a href="#" class="details">View Details</a>
-              </div>
-              <div class="box">
-                <img src="foto/parts3.png" alt="">
-                 <h3>Auto Spare Parts</h3>
-                  <span>$500</span>
-                  <i class='bx bxs-star'>(9 Reviws)</i>
-                  <a href="#" class="btn">Buy Now</a>
-                  <a href="#" class="details">View Details</a>
-              </div>
-              <div class="box">
-                <img src="foto/parts4.png" alt="">
-                 <h3>Auto Spare Parts</h3>
-                  <span>$500</span>
-                  <i class='bx bxs-star'>(9 Reviws)</i>
-                  <a href="#" class="btn">Buy Now</a>
-                  <a href="#" class="details">View Details</a>
-              </div>
-              <div class="box">
-                <img src="foto/parts5.png" alt="">
-                 <h3>Auto Spare Parts</h3>
-                  <span>$500</span>
-                  <i class='bx bxs-star'>(9 Reviws)</i>
-                  <a href="#" class="btn">Buy Now</a>
-                  <a href="#" class="details">View Details</a>
-              </div>
-              <div class="box">
-                <img src="foto/patrs6.png" alt="">
-                 <h3>Auto Spare Parts</h3>
-                  <span>$500</span>
-                  <i class='bx bxs-star'>(9 Reviws)</i>
-                  <a href="#" class="btn">Buy Now</a>
-                  <a href="#" class="details">View Details</a>
-              </div>
+        <div class="box">
+            <img src="foto/parts2.png" alt="Set Komponen Rem Mobil" id="part-img-spa">
+            <h3>Set Komponen Rem</h3>
+            <span class="price">$250</span>
+            <i class='bx bxs-star'>(7 Reviws)</i>
+            <a href="#" class="btn add-to-cart-btn" data-name="Set Komponen Rem" data-price="250" data-img="foto/parts2.png">Buy Now</a>
+            <a href="#" class="details view-details-btn"
+               data-name="Set Komponen Rem"
+               data-price="$250"
+               data-reviews="(7 Reviws)"
+               data-img="foto/parts2.png"
+               data-product-id="part2">View Details</a>
+        </div>
+          <div class="box">
+            <img src="foto/parts3.png" alt="Body Fairing Motor Sport" id="part-img-spb">
+            <h3>Body Fairing Motor</h3>
+            <span class="price">$150</span>
+            <i class='bx bxs-star'>(5 Reviws)</i>
+            <a href="#" class="btn add-to-cart-btn" data-name="Body Fairing Motor" data-price="150" data-img="foto/parts3.png">Buy Now</a>
+            <a href="#" class="details view-details-btn"
+               data-name="Body Fairing Motor"
+               data-price="$150"
+               data-reviews="(5 Reviws)"
+               data-img="foto/parts3.png"
+               data-product-id="part3">View Details</a>
+          </div>
+          <div class="box">
+            <img src="foto/parts4.png" alt="Velg Mobil Alloy Klasik" id="part-img-spc">
+            <h3>Velg Alloy Klasik</h3>
+            <span class="price">$90</span>
+            <i class='bx bxs-star'>(12 Reviws)</i>
+            <a href="#" class="btn add-to-cart-btn" data-name="Velg Alloy Klasik" data-price="90" data-img="foto/parts4.png">Buy Now</a>
+            <a href="#" class="details view-details-btn"
+               data-name="Velg Alloy Klasik"
+               data-price="$90"
+               data-reviews="(12 Reviws)"
+               data-img="foto/parts4.png"
+               data-product-id="part4">View Details</a>
+          </div>
+          <div class="box">
+            <img src="foto/parts5.png" alt="Set Ban Mobil Radial" id="part-img-spd">
+            <h3>Set Ban Mobil</h3>
+            <span class="price">$400</span>
+            <i class='bx bxs-star'>(8 Reviws)</i>
+            <a href="#" class="btn add-to-cart-btn" data-name="Set Ban Mobil" data-price="400" data-img="foto/parts5.png">Buy Now</a>
+            <a href="#" class="details view-details-btn"
+               data-name="Set Ban Mobil"
+               data-price="$400"
+               data-reviews="(8 Reviws)"
+               data-img="foto/parts5.png"
+               data-product-id="part5">View Details</a>
+          </div>
+          <div class="box">
+            <img src="foto/patrs6.png" alt="Filter Oli Mobil" id="part-img-spe"> 
+            <h3>Filter Oli Mobil</h3>
+            <span class="price">$320</span>
+            <i class='bx bxs-star'>(10 Reviws)</i>
+            <a href="#" class="btn add-to-cart-btn" data-name="Filter Oli Mobil" data-price="320" data-img="foto/patrs6.png">Buy Now</a>
+            <a href="#" class="details view-details-btn"
+               data-name="Filter Oli Mobil"
+               data-price="$320"
+               data-reviews="(10 Reviws)"
+               data-img="foto/patrs6.png"
+               data-product-id="part6">View Details</a>
+          </div>
         </div>
     </section>
         <section class="blog" id="blog">
@@ -158,28 +209,28 @@ $email = $_SESSION['email'] ?? '';
             </div>
             <div class="blog-container container">
                 <div class="box">
-                   <img src="foto/mobil1.jpg" alt="">
+                   <img src="foto/mobil1.jpg" alt="Blog post image 1">
                     <span>2 Mei 2025</span>
                     <h3>Cara Mendapatkan Mobil Sempurna dengan Harga Terjangkau</h3>
                     <p>Tips memilih mobil berkualitas dengan harga yang sesuai anggaran Anda.</p>
                     <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
                 </div>
                  <div class="box">
-                   <img src="foto/mobil2.jpg" alt="">
+                   <img src="foto/mobil2.jpg" alt="Blog post image 2">
                     <span>18 Maret 2024</span>
                     <h3>Panduan Perawatan Mobil untuk Pemula</h3>
                     <p>Langkah mudah merawat mobil agar tetap awet dan nyaman digunakan.</p>
                     <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
                 </div>
                  <div class="box">
-                   <img src="foto/mobil3.jpg" alt="">
+                   <img src="foto/mobil3.jpg" alt="Blog post image 3">
                     <span>7 Januari 2024</span>
                     <h3>Keuntungan Membeli Mobil Bekas Berkualitas</h3>
                     <p>Alasan memilih mobil bekas bisa menjadi solusi cerdas untuk Anda.</p>
                     <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
                 </div>
                  <div class="box">
-                   <img src="foto/mobil4.jpg" alt="">
+                   <img src="foto/mobil4.jpg" alt="Blog post image 4">
                     <span>27 Juni 2023</span>
                     <h3>Tips Aman Berkendara di Musim Hujan</h3>
                     <p>Cara menjaga keselamatan saat mengemudi di kondisi hujan dan jalan licin.</p>
@@ -187,6 +238,33 @@ $email = $_SESSION['email'] ?? '';
                 </div>
             </div>
         </section>
+
+    <section class="cart-section" id="cart-section">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <i class='bx bx-x' id="close-cart-btn"></i>
+        </div>
+        <div class="cart-items-container">
+            </div>
+        <div class="cart-summary">
+            <p>Total: <span id="cart-total">$0.00</span></p>
+            <button class="btn" id="checkout-btn">Checkout</button>
+        </div>
+    </section>
+
+    <div id="details-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal-btn">&times;</span>
+        <h2 id="modal-title">Product Details</h2>
+        <img id="modal-img" src="" alt="Product Image" style="width: 200px; height: auto; margin-bottom: 1rem; border-radius: 0.3rem;">
+        <p><strong>Price:</strong> <span id="modal-price"></span></p>
+        <p><strong>Reviews:</strong> <span id="modal-reviews"></span></p>
+        <div id="modal-description">
+            </div>
+        <a href="#" id="modal-buy-now-btn" class="btn" style="margin-top: 1rem;">Buy Now</a>
+    </div>
+    </div>
+
     <section class="footer">
         <div class="footer-container container">
          <div class="footer box">  
@@ -223,6 +301,13 @@ $email = $_SESSION['email'] ?? '';
     <div class="copyright">
        <p>&#169; DellerBapuk Siap Menerima Servis</p>
     </div>
+    <div id="custom-alert-popup" class="custom-alert">
+        <p id="custom-alert-message"></p>
+    </div>
+    <script>
+        const currentUserName = "<?php echo htmlspecialchars($_SESSION['username'] ?? 'Guest'); ?>";
+        const currentUserEmail = "<?php echo htmlspecialchars($_SESSION['email'] ?? 'guest@example.com'); ?>";
+    </script>
     <script src="main.js"> </script>
 </body>
 </html>

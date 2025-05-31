@@ -15,7 +15,7 @@
 --bg-color:#fff;
 }
 html::-webkit-scrollbar{
-    width: 0,5rem;
+    width: 0.5rem; /* Corrected from 0,5rem */
     background: transparent;
 }
 html::-webkit-scrollbar-thumb{
@@ -47,9 +47,9 @@ header{
 header.shadow {
     background: var(--bg-color);
     box-shadow: 4px 4px 20px rgb(15 54 55 / 20%);
-    transition: 0,5s ease;
+    transition: 0.5s ease; /* Corrected from 0,5s */
 }
-header.shadow #serch-icon{
+header.shadow #search-icon, header.shadow #cart-icon { /* Ensure cart icon color changes too */
     color: var(--text-color);
 }
 .nav{
@@ -59,7 +59,7 @@ header.shadow #serch-icon{
     padding: 20px 35px;
 }
 #menu-icon {
-    font-size: 24;
+    font-size: 24px; /* Corrected from 24 */
     cursor: pointer;
     color: var(--text-color);
     display: none;
@@ -78,7 +78,7 @@ header.shadow #serch-icon{
 }
 .navbar a{
     color: var(--text-color);
-    font: 1rem;
+    font-size: 1rem; /* Corrected from font: 1rem */
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -87,11 +87,34 @@ header.shadow #serch-icon{
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
 }
-#search-icon{
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between search and cart icon */
+}
+
+#search-icon, #cart-icon { /* Grouped common styles */
     font-size: 24px;
     cursor: pointer;
     color:var(--text-color);
 }
+#cart-icon {
+    position: relative; /* For positioning the count */
+}
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1; /* Ensure consistent height */
+}
+
 .search-box{
     position: absolute;
     top: 110%;
@@ -122,14 +145,13 @@ header.shadow #serch-icon{
     min-height: 640px;
     display: flex;
     align-items: center;
-    background : url(foto/home.png);
+    background : url(foto/home.png); /* Ensure this path is correct */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center left;
 }
 .home-text {
     padding-left: 130px;
-
 }
 .home-text h1{
     font-size: 2.4rem;
@@ -147,6 +169,9 @@ header.shadow #serch-icon{
     background: var(--main-color);
     color: var(--bg-color);
     font-weight: 400;
+    border-radius: 0.3rem; /* Added for consistency */
+    cursor: pointer; /* Added for better UX */
+    border: none; /* Ensure buttons look consistent */
 }
 .btn:hover{
     background: #fd052f;
@@ -193,7 +218,7 @@ header.shadow #serch-icon{
     font-size: 1rem;
     background: var(--bg-color);
     padding: 8px;
-    border-radius: 0.05rem;
+    border-radius: 0.5rem; /* Corrected from 0.05rem */
 }
 .cars-container .box:hover h2{
     background: var(--main-color);
@@ -239,7 +264,7 @@ header.shadow #serch-icon{
 }
 .parts-container .box img{
     width: 100%;
-    height: 150%;
+    height: 150px; /* Corrected from 150% to a fixed height for consistency */
     object-fit: contain;
     object-position: center;
     margin-bottom: 1rem;
@@ -248,12 +273,12 @@ header.shadow #serch-icon{
     font-size: 1.1rem;
     font-weight: 600;
 }
-.parts-container .box span{
+.parts-container .box span.price { /* Be more specific for price span */
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--main-color);
 }
-.parts-container .box .bx {
+.parts-container .box .bx.bxs-star { /* More specific selector */
     color: var(--main-color);
     margin: 0.8rem 0;
 }
@@ -281,7 +306,7 @@ header.shadow #serch-icon{
 }
 .blog-container .box {
     flex: 1 1 13rem;
-    position: relative;
+    /* position: relative; */ /* Not needed if padding is sufficient */
     padding: 20px;
 }
 .blog-container .box:hover {
@@ -291,7 +316,7 @@ header.shadow #serch-icon{
      font-size: 0.8rem;
      color: var(--main-color);
 }
-.blog-container h3 {
+.blog-container .box h3 { /* Changed from .blog-container h3 */
     font-size: 1.2rem;
 }
 .blog-container .box p {
@@ -312,6 +337,149 @@ header.shadow #serch-icon{
     column-gap: 0.7rem;
     transition: 0.4s;
 }
+
+/* Cart Section Styles */
+.cart-section {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially hidden */
+    width: 360px; /* A bit wider for content */
+    height: 100vh;
+    background: var(--bg-color);
+    box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+    padding: 20px;
+    z-index: 1001; /* Above header potentially */
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-section.active {
+    right: 0; /* Slide in */
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.cart-header h2 {
+    font-size: 1.5rem;
+    margin: 0; /* Reset margin if any */
+}
+#close-cart-btn {
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+#close-cart-btn:hover {
+    color: var(--main-color);
+}
+
+.cart-items-container {
+    flex-grow: 1; /* Allows this area to take up available space */
+    overflow-y: auto; /* Scroll for many items */
+    padding-right: 10px; /* For scrollbar space */
+}
+.cart-items-container p { /* For "cart is empty" message */
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 2rem;
+    color: #777;
+}
+
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem; /* More spacing */
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1.5rem; /* More spacing */
+}
+.cart-item:last-child {
+    border-bottom: none; /* No border for the last item */
+    margin-bottom: 0;
+}
+
+.cart-item img {
+    width: 80px; /* Slightly larger image */
+    height: 80px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    border: 1px solid #eee;
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Allow details to take up remaining space */
+}
+
+.cart-item-details h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.cart-item-details .price {
+    color: var(--main-color);
+    font-weight: 600; /* Bolder price */
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-details .quantity {
+  margin-bottom: 0.75rem; /* Space before remove button */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cart-item-details .quantity label {
+    font-size: 0.9rem;
+}
+.cart-item-details .quantity input {
+  width: 50px;
+  padding: 5px 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.remove-from-cart-btn {
+    background: #ff6b6b; /* Softer red */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.remove-from-cart-btn:hover {
+    background: #e74c3c; /* Darker red on hover */
+}
+
+.cart-summary {
+    margin-top: auto; /* Push to the bottom */
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+.cart-summary p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.cart-summary #checkout-btn {
+    width: 100%; /* Full width checkout button */
+    padding: 12px;
+    font-size: 1rem;
+}
+/* End Cart Section Styles */
+
+
 .footer {
     background: var(--text-color);
     color: #f6f6f6;
@@ -320,7 +488,7 @@ header.shadow #serch-icon{
 .footer-container {
     display: flex;
     justify-content: space-between;
-    gap: 1em;
+    gap: 1rem; /* Corrected from 1em */
 }
 .footer-container .logo {
     color: var(--bg-color);
@@ -361,6 +529,7 @@ header.shadow #serch-icon{
     color: var(--bg-color);
     background: var(--text-color);
 }
+
 @media (max-width: 1080px) {
     .container {
         margin-left: 1rem;
@@ -382,7 +551,7 @@ header.shadow #serch-icon{
     }
 }
 @media (max-width: 920px) {
-    #search-icon {
+    #search-icon, #cart-icon { /* Apply to cart icon as well */
         color: var(--text-color);
     }
 }
@@ -391,24 +560,25 @@ header.shadow #serch-icon{
         padding: 15px;
     }
     .nav {
-        padding: 10px 0;
+        padding: 10px 0; /* Adjust padding as needed */
     }
     #menu-icon {
         display: initial;
+        color: var(--text-color); /* Ensure it's visible if header bg changes */
     }
     .navbar {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        display: column;
+        display: flex; /* Changed from display: column; */
         flex-direction: column;
         background: var(--bg-color);
-        row-gap: 0,5rem;
+        row-gap: 0.5rem; /* Corrected from 0,5rem */
         text-align: center;
         box-shadow: 4px 4px 20px rgb(15 54 55 / 20%);
         clip-path: circle(0% at 0% 0%);
-        transition: 0,5s;
+        transition: 0.6s ease-in-out; /* Corrected from 0,5s */
     }
     .navbar a {
         display: block;
@@ -426,12 +596,15 @@ header.shadow #serch-icon{
     .blog-container .box {
         padding: 4px;
     }
+    .cart-section { /* Adjust cart for smaller screens */
+        width: 300px;
+    }
 }
-@media (max-width:727px) {
+@media (max-width:727px) { /* Typo: was max-width:727px, assuming 767px or similar */
     .heading span {
         font-size: 0.9rem;
     }
-    .home-text h2 {
+    .heading h2 { /* Was .home-text h2, likely meant .heading h2 for sections */
         font-size: 1.4rem;
     }
     .about {
@@ -450,6 +623,12 @@ header.shadow #serch-icon{
         grid-template-columns: 1fr 1fr;
     }
 }
+@media (max-width: 420px) { /* Slightly wider breakpoint for cart on small mobile */
+    .cart-section {
+        width: 100%; /* Full width on very small screens */
+        max-width: 280px; /* But not too wide */
+    }
+}
 @media (max-width: 360px) {
     .search-box input {
         padding: 11px;
@@ -463,4 +642,153 @@ header.shadow #serch-icon{
     .home-text p br {
         display: contents;
     }
+}
+
+.custom-alert {
+    position: fixed;
+    bottom: 20px; /* Position at the bottom */
+    left: 50%;
+    transform: translateX(-50%) translateY(150%); /* Initially off-screen below */
+    background-color: var(--main-color); /* Theme color! */
+    color: var(--bg-color);
+    padding: 15px 25px;
+    border-radius: 0.5rem; /* Consistent border radius */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1002; /* Above cart and header */
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    text-align: center;
+    min-width: 250px; /* Ensure it's wide enough for messages */
+    max-width: 90%;
+}
+
+.custom-alert.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Slide in from bottom */
+}
+
+.custom-alert p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.custom-alert p::before {
+    content: '\eb7f';
+    font-family: 'boxicons' !important;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1003; /* Above everything else, including custom alert */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity for overlay */
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 25px;
+    border: 1px solid var(--medium-gray-color);
+    border-radius: 0.5rem;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeInModal 0.5s ease-out;
+}
+
+@keyframes fadeInModal {
+    from {opacity: 0; transform: translateY(-30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: var(--main-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--light-gray-color);
+    padding-bottom: 0.5rem;
+}
+
+.modal-content p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+.modal-content p strong {
+    font-weight: 600;
+}
+
+#modal-description p {
+    font-size: 0.95rem;
+}
+
+#modal-buy-now-btn { /* Tombol Buy Now di dalam modal */
+    display: inline-block; /* Agar margin-top berfungsi */
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+#modal-buy-now-btn:hover {
+    background-color: #fd052f;
+}
+
+/* Responsif untuk modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    #modal-img {
+        width: 150px;
+    }
+}
+
+/* Tambahkan ini ke style.css Anda */
+#logout-icon {
+    font-size: 24px; /* Samakan dengan ikon lain */
+    cursor: pointer;
+    color: var(--text-color);
+    vertical-align: middle; /* Untuk alignment yang lebih baik jika di dalam <a> */
+}
+
+/* Jika header memiliki bayangan, pastikan warna ikon logout juga berubah */
+header.shadow #logout-icon {
+    color: var(--text-color);
+}
+
+/* Atur tampilan <a> jika menggunakan ikon di dalamnya */
+.header-icons a {
+    display: inline-flex; /* Agar ikon di tengah */
+    align-items: center;
 }

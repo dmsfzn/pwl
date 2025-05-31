@@ -7,18 +7,24 @@ if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = $_POST['role'];
 
     $checkEmail = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $checkEmail->bind_param("s", $email);
+    // Verifikasi apakah password dan konfirmasi password sama
+    if ($_POST['password'] !== $_POST['confirm_password']) {
+        $_SESSION['register_error'] = "Password dan konfirmasi password tidak sama.";
+        $_SESSION['active_form'] = 'register';
+        header("Location: login.php");
+        exit();
+    }
     $checkEmail->execute();
     $result = $checkEmail->get_result();
     if ($result->num_rows > 0) {
         $_SESSION['register_error'] = "Email already exists.";
         $_SESSION['active_form'] = 'register';
     } else {
-        $insertUser = $conn->prepare("INSERT INTO users (nama, email, password, role) VALUES (?, ?, ?, ?)");
-        $insertUser->bind_param("ssss", $username, $email, $password, $role);
+        $insertUser = $conn->prepare("INSERT INTO users (nama, email, password) VALUES (?, ?, ?)");
+        $insertUser->bind_param("sss", $username, $email, $password);
         $insertUser->execute();
     }
 
