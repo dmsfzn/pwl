@@ -1,0 +1,228 @@
+<?php
+session_start();
+
+// Jika tombol logout ditekan
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+    header('Location: index.php');
+    exit();
+}
+
+// Jika belum login, arahkan ke login.php
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: login.php');
+    exit();
+}
+
+// Data user, misal nama/email diambil dari session
+$username = $_SESSION['username'] ?? 'User';
+$email = $_SESSION['email'] ?? '';
+
+// Tampilkan halaman utama
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTOMOTIF</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>   
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i> 
+             <a href="#" class="logo">servis<span>mobil</span></a>
+             <ul class="navbar">
+                <li><a href="#home"class="active">Home</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#parts">Parts</a></li>
+                <li><a href="#blog">Blog</a></li>
+             </ul>
+             <i class='bx bx-search' id="search-icon"></i>
+             <div class="search-box container">
+                <input type="search" nama="" id="" placeholder="Search here...">
+             </div>
+            </div>   
+    </header>
+    <section class="home" id="home">
+       <div class="home-text">
+        <h1>We Have Everything <br>Your <span>car</span> Need</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur <b> adipisicing elit. Aspernatur placeat consectetur impedit maiores molestiae corrupti pariatur voluptatem error quasi itaque tenetur quos id corporis obcaecati dolores quas repellendus, asperiores aut.</p>
+        <a href="#" class="btn">Discover Now</a>   
+       </div>
+    </section>
+    <section class="cars" id="cars">
+        <div class="heading">
+          <span>ALL Cars</span>
+          <h2>We have all types cars</h2>
+           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, explicabo? </p> 
+        </div>
+        <div class="cars-container container">
+            <div class="box">
+                <img src="foto/mobil1.jpg" alt="">
+                <h2>Mobil Nissa</h2>
+            </div>
+            <div class="box">
+                <img src="foto/mobil2.jpg" alt="">
+                <h2>Mobil Nissa</h2>
+            </div>
+            <div class="box">
+                <img src="foto/mobil3.jpg" alt="">
+                <h2>Mobil Nissa</h2>
+            </div>
+            <div class="box">
+                <img src="foto/mobil4.jpg" alt="">
+                <h2>Mobil Nissa</h2>
+            </div>
+        </div>
+    </section>
+    <section class="about container" id="about">
+       <div class="about-img">
+        <img src="foto/about.png" alt="">
+       </div>
+        <div class="about-text">
+           <span>About Us</span>
+           <h2>Cheap Prices With <br>Quality Cars</h2>
+           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt, voluptatum ratione tenetur itaque eveniet natus quia labore ipsa possimus cumque ea minus animi, quisquam ullam aut, deleniti perferendis ad.</p>
+           <a href="" class="btn">Learn More</a>
+        </div>
+    </section>
+    <section class="parts" id="parts">
+        <div class="heading">
+            <span>What We OFFer</span>
+            <h2>Our Car Is Always Excellent</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, eaque! Aliquam nihil nisi quidem eum doloremque voluptatem vel, quam, molestias at atque odit adipisci soluta laborum, assumenda dolorum! Fugiat, voluptas.</p>
+        </div>
+        <div class="parts-container container">
+            <div class="box">
+              <img src="foto/patrs1.png" alt="">
+               <h3>Auto Spare Parts</h3>
+                <span>$500</span>
+                <i class='bx bxs-star'>(9 Reviws)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+            <div class="box">
+                <img src="foto/parts2.png" alt="">
+                 <h3>Auto Spare Parts</h3>
+                  <span>$500</span>
+                  <i class='bx bxs-star'>(9 Reviws)</i>
+                  <a href="#" class="btn">Buy Now</a>
+                  <a href="#" class="details">View Details</a>
+              </div>
+              <div class="box">
+                <img src="foto/parts3.png" alt="">
+                 <h3>Auto Spare Parts</h3>
+                  <span>$500</span>
+                  <i class='bx bxs-star'>(9 Reviws)</i>
+                  <a href="#" class="btn">Buy Now</a>
+                  <a href="#" class="details">View Details</a>
+              </div>
+              <div class="box">
+                <img src="foto/parts4.png" alt="">
+                 <h3>Auto Spare Parts</h3>
+                  <span>$500</span>
+                  <i class='bx bxs-star'>(9 Reviws)</i>
+                  <a href="#" class="btn">Buy Now</a>
+                  <a href="#" class="details">View Details</a>
+              </div>
+              <div class="box">
+                <img src="foto/parts5.png" alt="">
+                 <h3>Auto Spare Parts</h3>
+                  <span>$500</span>
+                  <i class='bx bxs-star'>(9 Reviws)</i>
+                  <a href="#" class="btn">Buy Now</a>
+                  <a href="#" class="details">View Details</a>
+              </div>
+              <div class="box">
+                <img src="foto/patrs6.png" alt="">
+                 <h3>Auto Spare Parts</h3>
+                  <span>$500</span>
+                  <i class='bx bxs-star'>(9 Reviws)</i>
+                  <a href="#" class="btn">Buy Now</a>
+                  <a href="#" class="details">View Details</a>
+              </div>
+        </div>
+    </section>
+        <section class="blog" id="blog">
+            <div class="heading">
+                <span>Blog & News</span>
+                <h2>Our Blog Containt</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, eaque! Aliquam nihil nisi quidem eum doloremque voluptatem vel, quam, molestias at atque odit adipisci soluta laborum, assumenda dolorum! Fugiat, voluptas.</p>
+            </div>
+            <div class="blog-container container">
+                <div class="box">
+                   <img src="foto/mobil1.jpg" alt="">
+                    <span>Mei 1 2025</span>
+                    <h3>How To Get Perfect Car At Low Price</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, voluptatibus!</p>
+                    <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                 <div class="box">
+                   <img src="foto/mobil2.jpg" alt="">
+                    <span>Mei 1 2025</span>
+                    <h3>How To Get Perfect Car At Low Price</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, voluptatibus!</p>
+                    <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                 <div class="box">
+                   <img src="foto/mobil3.jpg" alt="">
+                    <span>Mei 1 2025</span>
+                    <h3>How To Get Perfect Car At Low Price</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, voluptatibus!</p>
+                    <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                 <div class="box">
+                   <img src="foto/mobil4.jpg" alt="">
+                    <span>Mei 1 2025</span>
+                    <h3>How To Get Perfect Car At Low Price</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, voluptatibus!</p>
+                    <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </div>
+        </section>
+    <section class="footer">
+        <div class="footer-container container">
+         <div class="footer box">  
+            <a href="#" class="logo">Car<span>Point</span></a>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+            </div>
+         </div>  
+         <div class="footer-box">
+            <h3>Page</h3>
+            <a href="#">Home</a>
+            <a href="#">Cars</a>
+            <a href="#">parts</a>
+            <a href="#">Sales</a>
+         </div> 
+          <div class="footer-box">
+            <h3>Legal</h3>
+            <a href="#">Privacy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Cookie Policy</a>
+            
+         </div>
+          <div class="footer-box">
+           <h3>Containt</h3>
+           <p>Indonesia</p>
+           <p>Japan</p>
+           <p>United States</p>
+         </div>  
+        </div>
+    </section>
+    <div class="copyright">
+       <p>&#169; DellerBapuk Siap Menerima Servis</p>
+    </div>
+    <script src="main.js"> </script>
+</body>
+</html>
