@@ -1,0 +1,36 @@
+CREATE TABLE pengguna (
+  id int(10) NOT NULL AUTO_INCREMENT,
+  nama varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  password varchar(100) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email_unique (email)
+) ENGINE=InnoDB;
+
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED, -- INI SUDAH SESUAI dengan users.id (int unsigned)
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    order_date DATETIME NOT NULL,
+    order_status VARCHAR(50) DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) 
+        ON DELETE SET NULL 
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE order_items (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price_per_item DECIMAL(10, 2) NOT NULL,
+    sub_total DECIMAL(10, 2) NOT NULL,
+    product_image_url VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
