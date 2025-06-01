@@ -73,7 +73,7 @@ $email = $_SESSION['email'] ?? '';
                 <img src="foto/mobil1.jpg" alt="Nissan GT-R (R35)">
                 <h2 class="add-car-to-cart-trigger" 
                     data-name="Nissan GT-R (R35)" 
-                    data-price="80000" 
+                    data-price="4700000000" 
                     data-img="foto/mobil1.jpg" 
                     style="cursor: pointer;">Nissan GT-R (R35)</h2>
             </div>
@@ -81,7 +81,7 @@ $email = $_SESSION['email'] ?? '';
                 <img src="foto/mobil2.jpg" alt="Nissan Skyline GT-R (R34)">
                 <h2 class="add-car-to-cart-trigger" 
                     data-name="Nissan Skyline GT-R (R34)" 
-                    data-price="120000" 
+                    data-price="2950000000" 
                     data-img="foto/mobil2.jpg" 
                     style="cursor: pointer;">Nissan Skyline GT-R (R34)</h2>
             </div>
@@ -89,7 +89,7 @@ $email = $_SESSION['email'] ?? '';
                 <img src="foto/mobil3.jpg" alt="Nissan GT-R (R35) Sport">
                 <h2 class="add-car-to-cart-trigger" 
                     data-name="Nissan GT-R (R35) Sport" 
-                    data-price="85000" 
+                    data-price="1380000000" 
                     data-img="foto/mobil3.jpg" 
                     style="cursor: pointer;">Nissan GT-R (R35) Sport</h2>
             </div>
@@ -97,7 +97,7 @@ $email = $_SESSION['email'] ?? '';
                 <img src="foto/mobil4.jpg" alt="Nissan GT-R (R35) White">
                 <h2 class="add-car-to-cart-trigger" 
                     data-name="Nissan GT-R (R35) Black" 
-                    data-price="82000" 
+                    data-price="540000000" 
                     data-img="foto/mobil4.jpg" 
                     style="cursor: pointer;">Nissan GT-R (R35) White</h2>
             </div>
@@ -124,12 +124,12 @@ $email = $_SESSION['email'] ?? '';
             <div class="box">
             <img src="foto/patrs1.png" alt="Mesin V-Engine Mobil" id="part-img-mesin">
             <h3>Mesin V-Engine</h3>
-            <span class="price">$500</span>
+            <span class="price">Rp. 8.200.000</span>
             <i class='bx bxs-star'>(9 Reviws)</i>
-            <a href="#" class="btn add-to-cart-btn" data-name="Mesin V-Engine" data-price="500" data-img="foto/patrs1.png">Buy Now</a>
+            <a href="#" class="btn add-to-cart-btn" data-name="Mesin V-Engine" data-price="8200000" data-img="foto/patrs1.png">Buy Now</a>
             <a href="#" class="details view-details-btn" 
                data-name="Mesin V-Engine" 
-               data-price="$500" 
+               data-price="8200000" 
                data-reviews="(9 Reviws)" 
                data-img="foto/patrs1.png"
                data-product-id="part1">View Details</a>
@@ -137,12 +137,12 @@ $email = $_SESSION['email'] ?? '';
         <div class="box">
             <img src="foto/parts2.png" alt="Set Komponen Rem Mobil" id="part-img-spa">
             <h3>Set Komponen Rem</h3>
-            <span class="price">$250</span>
+            <span class="price">Rp. 4.000.000</span>
             <i class='bx bxs-star'>(7 Reviws)</i>
-            <a href="#" class="btn add-to-cart-btn" data-name="Set Komponen Rem" data-price="250" data-img="foto/parts2.png">Buy Now</a>
+            <a href="#" class="btn add-to-cart-btn" data-name="Set Komponen Rem" data-price="4000000" data-img="foto/parts2.png">Buy Now</a>
             <a href="#" class="details view-details-btn"
                data-name="Set Komponen Rem"
-               data-price="$250"
+               data-price="4000000"
                data-reviews="(7 Reviws)"
                data-img="foto/parts2.png"
                data-product-id="part2">View Details</a>
@@ -150,12 +150,12 @@ $email = $_SESSION['email'] ?? '';
           <div class="box">
             <img src="foto/parts3.png" alt="Body Fairing Motor Sport" id="part-img-spb">
             <h3>Body Fairing Motor</h3>
-            <span class="price">$150</span>
+            <span class="price">Rp. 2.500.000</span>
             <i class='bx bxs-star'>(5 Reviws)</i>
-            <a href="#" class="btn add-to-cart-btn" data-name="Body Fairing Motor" data-price="150" data-img="foto/parts3.png">Buy Now</a>
+            <a href="#" class="btn add-to-cart-btn" data-name="Body Fairing Motor" data-price="2500000" data-img="foto/parts3.png">Buy Now</a>
             <a href="#" class="details view-details-btn"
                data-name="Body Fairing Motor"
-               data-price="$150"
+               data-price="2500000"
                data-reviews="(5 Reviws)"
                data-img="foto/parts3.png"
                data-product-id="part3">View Details</a>
@@ -163,12 +163,12 @@ $email = $_SESSION['email'] ?? '';
           <div class="box">
             <img src="foto/parts4.png" alt="Velg Mobil Alloy Klasik" id="part-img-spc">
             <h3>Velg Alloy Klasik</h3>
-            <span class="price">$90</span>
+            <span class="price">Rp. 150.000</span>
             <i class='bx bxs-star'>(12 Reviws)</i>
-            <a href="#" class="btn add-to-cart-btn" data-name="Velg Alloy Klasik" data-price="90" data-img="foto/parts4.png">Buy Now</a>
+            <a href="#" class="btn add-to-cart-btn" data-name="Velg Alloy Klasik" data-price="150000" data-img="foto/parts4.png">Buy Now</a>
             <a href="#" class="details view-details-btn"
                data-name="Velg Alloy Klasik"
-               data-price="$90"
+               data-price="150000"
                data-reviews="(12 Reviws)"
                data-img="foto/parts4.png"
                data-product-id="part4">View Details</a>
@@ -176,12 +176,12 @@ $email = $_SESSION['email'] ?? '';
           <div class="box">
             <img src="foto/parts5.png" alt="Set Ban Mobil Radial" id="part-img-spd">
             <h3>Set Ban Mobil</h3>
-            <span class="price">$400</span>
+            <span class="price">Rp. 400.000</span>
             <i class='bx bxs-star'>(8 Reviws)</i>
-            <a href="#" class="btn add-to-cart-btn" data-name="Set Ban Mobil" data-price="400" data-img="foto/parts5.png">Buy Now</a>
+            <a href="#" class="btn add-to-cart-btn" data-name="Set Ban Mobil" data-price="400000" data-img="foto/parts5.png">Buy Now</a>
             <a href="#" class="details view-details-btn"
                data-name="Set Ban Mobil"
-               data-price="$400"
+               data-price="400000"
                data-reviews="(8 Reviws)"
                data-img="foto/parts5.png"
                data-product-id="part5">View Details</a>
@@ -189,12 +189,12 @@ $email = $_SESSION['email'] ?? '';
           <div class="box">
             <img src="foto/patrs6.png" alt="Filter Oli Mobil" id="part-img-spe"> 
             <h3>Filter Oli Mobil</h3>
-            <span class="price">$320</span>
+            <span class="price">Rp. 320.000</span>
             <i class='bx bxs-star'>(10 Reviws)</i>
-            <a href="#" class="btn add-to-cart-btn" data-name="Filter Oli Mobil" data-price="320" data-img="foto/patrs6.png">Buy Now</a>
+            <a href="#" class="btn add-to-cart-btn" data-name="Filter Oli Mobil" data-price="320000" data-img="foto/patrs6.png">Buy Now</a>
             <a href="#" class="details view-details-btn"
                data-name="Filter Oli Mobil"
-               data-price="$320"
+               data-price="320000"
                data-reviews="(10 Reviws)"
                data-img="foto/patrs6.png"
                data-product-id="part6">View Details</a>
